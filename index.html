@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compassionate Doctors Uganda — Compassionate Health Care</title>
+<meta name="description" content="Compassionate Doctors Uganda is a Christian-based network of healthcare professionals dedicated to serving communities through compassionate medical care and charity." />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#16357a;
+  --navy-dark:#0e2557;
+  --red:#d8262c;
+  --red-dark:#b21e23;
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --text:#1f2533;
+  --muted:#5a6272;
+  --line:#e6eaf2;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(15,30,70,.08);
+  --shadow-lg:0 20px 50px rgba(15,30,70,.12);
+  --container:1200px;
+  --transition:.25s ease;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--navy);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--red)}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:var(--navy);line-height:1.2}
+h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:700}
+h3{font-size:1.3rem;font-weight:600}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+.section{padding:88px 0}
+.section-tight{padding:60px 0}
+.eyebrow{
+  display:inline-block;
+  color:var(--red);
+  font-weight:700;
+  letter-spacing:3px;
+  font-size:.78rem;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.section-title{text-align:center;margin-bottom:14px}
+.section-sub{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 56px;font-size:1.05rem}
+
+/* TOP UTILITY BAR */
+.topbar{
+  background:var(--navy-dark);
+  color:#cfd6e6;
+  font-size:.85rem;
+}
+.topbar .container{
+  display:flex;justify-content:space-between;align-items:center;padding:10px 24px;
+  flex-wrap:wrap;gap:8px;
+}
+.topbar a{color:#cfd6e6}
+.topbar a:hover{color:#fff}
+.topbar .info span{margin-right:18px}
+.topbar .info i{color:var(--red);margin-right:6px}
+.socials a{margin-left:12px;display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.2);border-radius:50%}
+.socials a:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+/* HEADER */
+.header{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
+}
+.header .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:24px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:64px;width:auto}
+nav ul{display:flex;list-style:none;gap:28px;align-items:center}
+nav a{
+  color:var(--text);font-weight:600;font-size:.95rem;position:relative;padding:6px 0;
+}
+nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--red);
+  transform:scaleX(0);transform-origin:left;transition:transform var(--transition);
+}
+nav a:hover::after,nav a.active::after{transform:scaleX(1)}
+.btn{
+  display:inline-block;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.92rem;
+  transition:all var(--transition);cursor:pointer;border:none;
+}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-dark);color:#fff;transform:translateY(-2px);box-shadow:0 10px 20px rgba(216,38,44,.3)}
+.btn-outline{background:transparent;color:#fff;border:2px solid #fff}
+.btn-outline:hover{background:#fff;color:var(--navy)}
+.btn-ghost{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+.menu-toggle{display:none;background:none;border:0;font-size:1.6rem;color:var(--navy);cursor:pointer}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:
+    linear-gradient(135deg, rgba(14,37,87,.92) 0%, rgba(22,53,122,.85) 60%, rgba(216,38,44,.75) 100%),
+    url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  color:#fff;
+  padding:120px 0 130px;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:80px;
+  background:linear-gradient(180deg,transparent,var(--bg));
+}
+.hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero h1{color:#fff;margin-bottom:20px}
+.hero h1 span{color:#ffd8da}
+.hero p.lead{font-size:1.15rem;opacity:.95;margin-bottom:32px;max-width:560px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-card{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--radius);
+  padding:28px;
+}
+.hero-card h3{color:#fff;margin-bottom:10px}
+.hero-card p{opacity:.9;font-size:.95rem;margin-bottom:18px}
+.tagline{
+  display:inline-block;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  padding:7px 16px;border-radius:999px;font-size:.82rem;font-weight:600;
+  letter-spacing:2px;margin-bottom:22px;text-transform:uppercase;
+}
+
+/* STATS */
+.stats{margin-top:-50px;position:relative;z-index:3}
+.stats-grid{
+  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-lg);
+  display:grid;grid-template-columns:repeat(4,1fr);padding:36px 24px;
+}
+.stat{text-align:center;padding:10px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;color:var(--red)}
+.stat .label{color:var(--muted);font-size:.92rem;margin-top:4px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-img{position:relative}
+.about-img img{border-radius:var(--radius);box-shadow:var(--shadow-lg);height:480px;object-fit:cover;width:100%}
+.about-img::before{
+  content:"";position:absolute;left:-18px;top:-18px;width:140px;height:140px;
+  background:var(--red);opacity:.12;border-radius:var(--radius);
+}
+.about-img::after{
+  content:"";position:absolute;right:-18px;bottom:-18px;width:160px;height:160px;
+  background:var(--navy);opacity:.1;border-radius:var(--radius);
+}
+.about-content h2{margin-bottom:18px}
+.about-content p{color:var(--muted);margin-bottom:16px}
+.about-content ul{list-style:none;margin:22px 0}
+.about-content li{padding:8px 0;display:flex;gap:12px;align-items:flex-start;color:var(--text)}
+.about-content li::before{
+  content:"✓";color:#fff;background:var(--red);width:24px;height:24px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;
+  flex-shrink:0;margin-top:3px;
+}
+/* SERVICES / ACTIVITIES */
+.services{background:#fff}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+}
+.service{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px 28px;transition:all var(--transition);position:relative;overflow:hidden;
+}
+.service::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:4px;
+  background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform var(--transition);
+}
+.service:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.service:hover::before{transform:scaleX(1)}
+.service .icon{
+  width:60px;height:60px;border-radius:14px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-dark));color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;
+}
+.service:nth-child(even) .icon{background:linear-gradient(135deg,var(--red),var(--red-dark))}
+.service h3{margin-bottom:10px}
+.service p{color:var(--muted);font-size:.95rem}
+
+/* TEAM SECTION */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.team-card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:all var(--transition);
+  border:1px solid var(--line);
+}
+.team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.team-photo{
+  aspect-ratio:1/1;width:100%;
+  background-size:cover;background-position:center;
+  position:relative;
+  background-color:#e2e8f0;
+}
+.team-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(14,37,87,.4));
+}
+.team-photo .placeholder-icon{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:3.5rem;opacity:0.3;
+}
+.team-body{padding:22px;text-align:center}
+.team-body h3{margin-bottom:6px;font-size:1.15rem;color:var(--navy)}
+.team-body .role{color:var(--red);font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.team-body .desc{color:var(--muted);font-size:.88rem;line-height:1.4}
+
+/* CALL TO ACTION */
+.cta{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
+  color:#fff;text-align:center;border-radius:var(--radius);
+  padding:60px 30px;margin:0 24px;
+  position:relative;overflow:hidden;
+}
+.cta::before{
+  content:"";position:absolute;top:-50%;right:-10%;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(216,38,44,.35),transparent 70%);
+}
+.cta h2{color:#fff;margin-bottom:14px;position:relative}
+.cta p{opacity:.9;max-width:600px;margin:0 auto 28px;position:relative}
+.cta .btns{position:relative;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+
+/* IMPACT / GET INVOLVED */
+.involve{background:#fff}
+.involve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.involve-card{
+  border-radius:var(--radius);padding:36px;
+  background:linear-gradient(135deg,#f3f6ff 0%,#fff 100%);
+  border:1px solid var(--line);text-align:left;
+}
+.involve-card .icon{
+  width:56px;height:56px;border-radius:14px;background:var(--red);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px;
+}
+.involve-card h3{margin-bottom:10px}
+.involve-card p{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.involve-card a{color:var(--red);font-weight:700}
+
+/* TESTIMONIAL */
+.testimonial{
+  background:linear-gradient(135deg,#0e2557,#16357a);color:#fff;
+  text-align:center;
+}
+.testimonial blockquote{
+  max-width:800px;margin:0 auto;font-size:1.35rem;font-family:'Playfair Display',serif;
+  font-style:italic;line-height:1.6;color:#fff;position:relative;padding:0 30px;
+}
+.testimonial blockquote::before{
+  content:"\201C";position:absolute;left:-10px;top:-40px;font-size:5rem;color:var(--red);
+  font-family:'Playfair Display',serif;line-height:1;
+}
+.testimonial .author{margin-top:24px;font-weight:700;color:#ffd8da;letter-spacing:1px}
+.testimonial .author small{display:block;color:#cfd6e6;font-weight:400;margin-top:4px;font-size:.85rem}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start}
+.contact-info{
+  background:var(--navy);color:#fff;border-radius:var(--radius);padding:40px;
+  position:sticky;top:100px;
+}
+.contact-info h3{color:#fff;margin-bottom:18px}
+.contact-info p{opacity:.9;margin-bottom:24px}
+.contact-item{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.contact-item .ic{
+  flex-shrink:0;width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+  color:#fff;
+}
+.contact-item h4{color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;margin-bottom:2px;font-weight:600}
+.contact-item span{opacity:.85;font-size:.92rem;display:block}
+.contact-form{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;font-size:.88rem;margin-bottom:6px;color:var(--text)}
+.form-group input,.form-group textarea{
+  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;
+  font-family:inherit;font-size:.95rem;transition:border-color var(--transition);
+  background:#fbfcfe;
+}
+.form-group input:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--navy);background:#fff;
+  box-shadow:0 0 0 3px rgba(22,53,122,.1);
+}
+.form-group textarea{min-height:130px;resize:vertical}
+
+/* DONATION MODAL POPUP */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(10,28,68,0.85);backdrop-filter:blur(6px);
+  z-index:1000;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.3s ease;padding:20px;
+}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-card{
+  background:#fff;border-radius:var(--radius);max-width:540px;width:100%;
+  box-shadow:var(--shadow-lg);padding:36px;position:relative;
+  transform:translateY(20px);transition:transform 0.3s ease;
+}
+.modal-overlay.active .modal-card{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:16px;right:16px;background:none;border:none;
+  font-size:1.5rem;color:var(--muted);cursor:pointer;transition:color var(--transition);
+}
+.modal-close:hover{color:var(--red)}
+.modal-title{margin-bottom:12px;font-size:1.8rem;text-align:center}
+.modal-intro{color:var(--muted);text-align:center;font-size:0.95rem;margin-bottom:24px}
+.bank-details-box{
+  background:var(--bg);border:1px dashed var(--navy);border-radius:8px;
+  padding:20px;margin-bottom:20px;font-size:0.92rem;
+}
+.bank-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+.bank-row:last-child{border-bottom:none}
+.bank-label{font-weight:600;color:var(--muted)}
+.bank-val{font-weight:700;color:var(--navy-dark);text-align:right}
+
+/* FOOTER */
+footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
+.footer-col h4{color:#fff;font-family:'Inter',sans-serif;font-size:1rem;margin-bottom:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.footer-col p,.footer-col li{font-size:.92rem;line-height:1.8;color:#a8b3cb}
+.footer-col ul{list-style:none}
+.footer-col a{color:#a8b3cb}
+.footer-col a:hover{color:var(--red)}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-brand img{height:60px;width:auto;background:#fff;padding:6px;border-radius:8px}
+.newsletter{display:flex;gap:8px;margin-top:14px}
+.newsletter input{
+  flex:1;padding:11px 14px;border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);border-radius:6px;color:#fff;font-family:inherit;
+}
+.newsletter input::placeholder{color:#a8b3cb}
+.newsletter button{
+  background:var(--red);color:#fff;padding:11px 18px;border:none;border-radius:6px;
+  cursor:pointer;font-weight:600;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);padding:22px 0;font-size:.85rem;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#a8b3cb;
+}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero{padding:80px 0 100px}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid var(--line);padding:18px}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .services-grid,.involve-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .contact-info{position:static}
+  .form-row{grid-template-columns:1fr}
+  nav{
+    position:absolute;top:100%;left:0;right:0;background:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);padding:24px;
+    transform:translateY(-10px);opacity:0;pointer-events:none;transition:all var(--transition);
+  }
+  nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  nav ul{flex-direction:column;align-items:flex-start;gap:18px}
+  .menu-toggle{display:block}
+  .topbar .info{display:none}
+}
+@media(max-width:560px){
+  .stats-grid{grid-template-columns:1fr}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+  .team-grid,.footer-grid{grid-template-columns:1fr}
+  .section{padding:60px 0}
+  .logo img{height:54px}
+}
+.reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="info">
+      <span>📞 +256776404939</span>
+      <span>✉ compassionatedoctorsuganda@gmail.com</span>
+      <span>📍 Kampala, Uganda</span>
+    </div>
+    <div class="socials" aria-label="Social media">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="Twitter">x</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container">
+    <a href="#home" class="logo">
+      <img src="assets/logo.svg" alt="Compassionate Doctors Uganda" />
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">Who We Are</a></li>
+        <li><a href="#activities">Our Ministry</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#serve">Who We Serve</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="btn btn-primary trigger-donation">Support Our Mission</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="tagline">"Compassionate Health care"</span>
+      <h1>Demonstrating the <span>Love of Christ</span> Through Medicine</h1>
+      <p class="lead">
+        Compassionate Doctors Uganda is a Christian-based network of healthcare professionals dedicated to serving communities through compassionate medical care and charity.
+      </p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">Our Vision &amp; Mission</a>
+        <button class="btn btn-outline trigger-donation">Donate Now</button>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <h3>Our Vision</h3>
+      <p>A healthy Uganda where communities experience holistic healing through compassion and God's love.</p>
+      <button class="btn btn-primary trigger-donation" style="background:#fff;color:var(--navy)">Support Our Mission →</button>
+    </div>
+  </div>
+</section>
+
+<div class="container stats">
+  <div class="stats-grid reveal">
+    <div class="stat"><div class="num" data-target="45">0</div><div class="label">Outreaches Conducted</div></div>
+    <div class="stat"><div class="num" data-target="5800">0</div><div class="label">Patients Blessed</div></div>
+    <div class="stat"><div class="num" data-target="150">0</div><div class="label">Professionals Mentored</div></div>
+    <div class="stat"><div class="num" data-target="100">0</div><div class="label">% Charity &amp; Service</div></div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-img reveal">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80" alt="Compassionate Doctors Uganda team providing healthcare" />
+    </div>
+    <div class="about-content reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2>Caring for the Sick, Supporting the Vulnerable</h2>
+      <p>
+        Rooted in Christian values, we aim to demonstrate the love of Christ by caring for the sick and supporting vulnerable populations. We walk alongside our communities to bring hope and restoration.
+      </p>
+      <div style="margin-top: 20px;">
+        <h3>Our Mission</h3>
+        <p style="font-style: italic; color: var(--muted); margin-top: 5px;">
+          "To provide Christ-centered healthcare, promote preventive health education, and extend charity and support to those in need through outreach and community service."
+        </p>
+      </div>
+      <a href="#activities" class="btn btn-ghost" style="margin-top: 15px;">See Our Activities</a>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="activities">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Our Ministry</span>
+      <h2 class="section-title">Our Ministry &amp; Activities</h2>
+      <p class="section-sub">We put our faith into action through distinct community avenues, addressing both medical and structural needs across Uganda.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service reveal">
+        <div class="icon">%🩺</div>
+        <h3>Community Medical Outreaches</h3>
+        <p>Taking clinical teams into the hearts of communities to offer medical assistance where accessibility is limited.</p>
+      </div>
+      <div class="service reveal">
+        <div class="icon">🔍</div>
+        <h3>Free Health Screening &amp; Treatment</h3>
+        <p>Providing diagnostic check-ups, early detection assessments, and dispensing necessary pharmaceutical treatments at no cost.</p>
+      </div>
+      <div class="service reveal">
+        <div class="icon">🤰</div>
+        <h3>Maternal and Child Health Care</h3>
+        <p>Ensuring specialized care frameworks, education, and clinical interventions tailored for mothers, newborns, and infants.</p>
+      </div>
+      <div class="service reveal">
+        <div class="icon">📣</div>
+        <h3>Health Education and Counseling</h3>
+        <p>Promoting lifestyle modifications and preventative medicine guidelines, layered with psycho-spiritual counseling platforms.</p>
+      </div>
+      <div class="service reveal">
+        <div class="icon">🎁</div>
+        <h3>Charity Support</h3>
+        <p>Extending critical humanitarian relief networks including medical aid supplies, basic needs assistance, and local development tools.</p>
+      </div>
+      <div class="service reveal">
+        <div class="icon">🎓</div>
+        <h3>Mentorship of Young Professionals</h3>
+        <p>Guiding, training, and building the capacities of junior healthcare practitioners and medical students in compassionate, value-based care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="team" style="background:#fff; border-top: 1px solid var(--line)">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Leadership</span>
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-sub">A dedicated team of professionals united in vision to expand healthcare reach and clinical training across Uganda.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo" style="background-image:url('assets/Dr. Nuwahereza Dickson (MBChB).jpeg')">
+        </div>
+        <div class="team-body">
+          <h3>Dr. Nuwahereza Dickson (MBChB)</h3>
+          <p class="role">CEO / Founder</p>
+          <p class="desc">Compassionate Doctors Uganda</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo" style="background-image:url('assets/Dr. Nuwagira Edson (MBChB, MPH).png')">
+        </div>
+        <div class="team-body">
+          <h3>Dr. Nuwagira Edson (MBChB, MPH)</h3>
+          <p class="role">Program Development</p>
+          <p class="desc">Community Health Strategy and Program Development</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo" style="background-image:url('assets/Fiona Margaret Collins.jpeg')">
+        </div>
+        <div class="team-body">
+          <h3>Fiona Margaret Collins</h3>
+          <p class="role">Patron</p>
+          <p class="desc">Spiritual and Moral Advisor</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo" style="background-image:url('assets/Dr. Onapa Emmanuel.png')">
+        </div>
+        <div class="team-body">
+          <h3>Dr. Onapa Emmanuel</h3>
+          <p class="role">Ass. Consultant OB/GYN</p>
+          <p class="desc">Clinical mentorship and maternal health advisory</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:20px; font-size:0.85rem; color:var(--muted)">
+    </div>
+  </div>
+</section>
+
+<section class="section involve" id="serve">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Beneficiaries</span>
+      <h2 class="section-title">Who We Serve</h2>
+      <p class="section-sub">Our strategic mandate focuses entirely on uplifting demographic groups facing systemic health and financial barriers.</p>
+    </div>
+    <div class="involve-grid">
+      <div class="involve-card reveal">
+        <div class="icon">🏡</div>
+        <h3>Vulnerable &amp; Underserved Communities</h3>
+        <p>Reaching isolated, structurally marginalized populations lacking access to mainstream, affordable state health systems.</p>
+      </div>
+      <div class="involve-card reveal">
+        <div class="icon">👶</div>
+        <h3>Orphans &amp; Disadvantaged Children</h3>
+        <p>Providing custom clinical protections, institutional resources, nutritional monitoring, and general charity assistance.</p>
+      </div>
+      <div class="involve-card reveal">
+        <div class="icon">👩‍👦</div>
+        <h3>Women &amp; Families in Need</h3>
+        <p>Preserving family structural integrity by delivering holistic health access to marginalized mothers and household networks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonial">
+  <div class="container reveal">
+    <blockquote>
+      "They demonstrated the love of Christ not just in words, but through actual medicine and true care. They listened to our community and left us with renewed health and structural hope."
+    </blockquote>
+    <div class="author">
+      Community Beneficiary
+      <small>Outreach Recipient, Uganda</small>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Get in Touch</span>
+      <h2 class="section-title">Partner in Ministry</h2>
+      <p class="section-sub">Do you want to support our outreaches, volunteer your medical skills, or explore a structural partnership? Contact our team.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Reach Out To Us</h3>
+        <p>Our team is available to respond to inquiries regarding donation allocations, medical volunteer placements, or corporate-faith alignments.</p>
+        <div class="contact-item">
+          <div class="ic">📍</div>
+          <div><h4>Address</h4><span>Compassionate Doctors Uganda<br/>Kampala, Uganda</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">📞</div>
+          <div><h4>Phone</h4><span>+256776404939</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">✉</div>
+          <div><h4>Email</h4><span>compassionatedoctorsuganda@gmail.com</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">🕒</div>
+          <div><h4>Ministry Hours</h4><span>Mon – Sat: 8:00 AM – 6:00 PM</span></div>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="event.preventDefault();this.querySelector('.thanks').style.display='block';this.reset();">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input id="fname" type="text" required placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input id="lname" type="text" required placeholder="Doe" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" placeholder="+256 ..." />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="How can we partner together?" />
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" required placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+        <p class="thanks" style="display:none;margin-top:14px;padding:12px;background:#e7f6e9;color:#1e6b35;border-radius:8px;text-align:center;font-weight:600">✓ Message received. May God bless you!</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" alt="Compassionate Doctors Uganda" />
+        </div>
+        <p>A Christian-based network of healthcare professionals dedicated to serving communities through compassionate medical care and charity.</p>
+        <div class="socials" style="margin-top:14px">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">x</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">Who We Are</a></li>
+          <li><a href="#activities">Our Ministry</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#serve">Who We Serve</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Activities</h4>
+        <ul>
+          <li><a href="#activities">Medical Outreaches</a></li>
+          <li><a href="#activities">Health Screenings</a></li>
+          <li><a href="#activities">Maternal Health Care</a></li>
+          <li><a href="#activities">Charity Support</a></li>
+          <li><a href="#activities">Professional Mentorship</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Get ministry updates, story reports and outreach logs straight to your inbox.</p>
+        <form class="newsletter" onsubmit="event.preventDefault();this.querySelector('input').value='';alert('Subscribed! Thank you.')">
+          <input type="email" required placeholder="Your email" />
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Compassionate Doctors Uganda. All rights reserved.</span>
+      <span>"Compassionate Health care"</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="donationModal">
+  <div class="modal-card">
+    <button class="modal-close" id="closeModal">✕</button>
+    <h3 class="modal-title" style="color:var(--navy-dark)">Support Our Mission</h3>
+    <p class="modal-intro">Thank you for partnering with Compassionate Doctors Uganda. Your financial assistance helps purchase medicines, fund mobile clinical outreaches, and extend charity to underserved families.</p>
+    
+    <div style="font-weight:700; font-size:0.85rem; color:var(--red); text-transform:uppercase; margin-bottom:8px; letter-spacing:1px; text-align:center;">Bank Transfer Details</div>
+    
+    <div class="bank-details-box">
+      <div class="bank-row">
+        <span class="bank-label">Bank Name:</span>
+        <span class="bank-val">Stanbic Bank Uganda</span>
+      </div>
+      <div class="bank-row">
+        <span class="bank-label">SWIFT Code:</span>
+        <span class="bank-val">SBICUGKXXX</span>
+      </div>
+      <div class="bank-row">
+        <span class="bank-label">Beneficiary Name:</span>
+        <span class="bank-val">Nuwahereza Dickson</span>
+      </div>
+      <div class="bank-row">
+        <span class="bank-label">Branch:</span>
+        <span class="bank-val">Nebbi Branch</span>
+      </div>
+      <div class="bank-row">
+        <span class="bank-label">Account Number:</span>
+        <span class="bank-val" style="color:var(--red); font-size:1.05rem;">9030025133357</span>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary" id="copyAccountBtn" style="width:100%; border-radius:8px;">Copy Account Number</button>
+    <p id="copyFeedback" style="text-align:center; font-size:0.82rem; color:green; margin-top:8px; font-weight:600; display:none;">✓ Account number copied to clipboard!</p>
+  </div>
+</div>
+
+<script>
+// year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// scroll reveal
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// stat counters
+const animateCount = el => {
+  const target = +el.dataset.target;
+  const duration = 1600;
+  const start = performance.now();
+  const step = now => {
+    const p = Math.min((now-start)/duration,1);
+    el.textContent = Math.floor(p*target).toLocaleString() + (target>=1000?'+':'');
+    if(p<1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString() + (target>=1000?'+':'');
+  };
+  requestAnimationFrame(step);
+};
+const statObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); statObs.unobserve(e.target);} });
+},{threshold:.5});
+document.querySelectorAll('.stat .num').forEach(el=>statObs.observe(el));
+
+// nav active link on scroll
+const links = document.querySelectorAll('nav a[href^="#"]');
+const sections = [...links].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY + 140;
+  sections.forEach((s,i)=>{
+    if(s && s.offsetTop<=y && s.offsetTop+s.offsetHeight>y){
+      links.forEach(l=>l.classList.remove('active'));
+      links[i].classList.add('active');
+    }
+  });
+});
+
+// close mobile nav on click
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{
+  document.querySelector('nav').classList.remove('open');
+}));
+
+/* POPUP MODAL FUNCTIONALITY */
+const modal = document.getElementById('donationModal');
+const closeBtn = document.getElementById('closeModal');
+const copyBtn = document.getElementById('copyAccountBtn');
+const feedback = document.getElementById('copyFeedback');
+
+// Open modal when clicking any trigger donation button
+document.querySelectorAll('.trigger-donation').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+  });
+});
+
+// Close modal
+closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+
+// Copy Account Number
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText('9030025133357').then(() => {
+    feedback.style.display = 'block';
+    setTimeout(() => { feedback.style.display = 'none'; }, 2800);
+  });
+});
+</script>
+</body>
+</html>
