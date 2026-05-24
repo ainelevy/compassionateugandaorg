@@ -487,6 +487,35 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
 }
 .reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* MOBILE SPOTLIGHT STRIP */
+.mobile-spotlight{
+  display:none;
+}
+@media(max-width:960px){
+  .header .container{flex-wrap:wrap;padding:10px 16px;gap:8px}
+  .mobile-spotlight{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    min-width:0;
+    padding:8px 12px;
+    background:linear-gradient(135deg,#fff5f5,#fff);
+    border-left:3px solid var(--red);
+    border-radius:8px;
+    text-decoration:none;
+    overflow:hidden;
+  }
+  .mobile-spotlight-label{
+    font-size:.65rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:1.5px;color:var(--red);margin-bottom:2px;
+  }
+  .mobile-spotlight-text{
+    font-size:.78rem;font-weight:600;color:var(--navy);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .menu-toggle{flex-shrink:0}
+}
 </style>
 </head>
 <body>
@@ -511,6 +540,10 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
   <div class="container">
     <a href="#home" class="logo">
       <img src="./assets/logo.svg" alt="Compassionate Doctors Uganda" />
+    </a>
+    <a href="#fundraising" class="mobile-spotlight">
+      <span class="mobile-spotlight-label">Project Spotlight</span>
+      <span class="mobile-spotlight-text">🏥 Help Us Build the Compassionate Doctors Medical Center</span>
     </a>
     <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
     <nav>
@@ -552,7 +585,7 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
 <div class="container">
   <div class="fundraiser-banner reveal">
     <h3>🏥 Project Spotlight: Help Us Build A Medical Center</h3>
-    <p>We're currently fundraising for the establishment of the <strong>"Compassionate Doctors Medical Center"</strong> in one of the underserved communities in Kampala, Uganda. Our main aim is to extend affordable and cheaper healthcare services to marginalized populations. Read below to view our required tools list and partner with us.</p>
+    <p>We're currently fundraising for the establishment of the <strong><a href="#fundraising" style="color:var(--navy);text-decoration:underline;text-underline-offset:3px;">"Compassionate Doctors Medical Center"</a></strong> in one of the underserved communities in Kampala, Uganda. Our main aim is to extend affordable and cheaper healthcare services to marginalized populations.</p>
   </div>
 </div>
 
