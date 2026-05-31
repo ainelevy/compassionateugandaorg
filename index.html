@@ -485,8 +485,10 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
   .section{padding:60px 0}
   .logo img{height:72px}
 }
-.reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}
 .reveal.in{opacity:1;transform:none}
+/* Fallback: if JS hasn't run (e.g. no-js), show content */
+.no-js .reveal{opacity:1;transform:none}
 
 /* MOBILE SPOTLIGHT STRIP */
 .mobile-spotlight{
@@ -562,15 +564,13 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
 }
 
 
-/* ── Registry 2.0 – extra vars ── */
-:root {
-  --border: #d0d8e8;
-  --accent: #27ae60;
-  --row-alt: #edf2fb;
-  --blue:   #2980b9;
-}
+/* == Registry component styles (scoped to #fundraising) == */
+  
+  
+  
+  
   /* ── Header ── */
-  .header {
+#fundraising .header {
     background: var(--navy);
     color: white;
     padding: 28px 40px;
@@ -580,26 +580,25 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     flex-wrap: wrap;
     gap: 20px;
   }
-  .header-left h1 {
+#fundraising .header-left h1 {
     font-family: 'Playfair Display', serif;
     font-size: 26px;
     letter-spacing: 0.5px;
   }
-  .header-left .tagline {
+#fundraising .header-left .tagline {
     font-size: 12px;
     color: #a0b4d4;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 4px;
   }
-  .header-right {
+#fundraising .header-right {
     text-align: right;
     font-size: 13px;
     color: #c5d5e8;
     line-height: 1.9;
   }
-
-  .verse-bar {
+#fundraising .verse-bar {
     background: var(--red);
     color: #fff;
     text-align: center;
@@ -607,8 +606,7 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     font-style: italic;
     font-size: 13px;
   }
-
-  .meta-bar {
+#fundraising .meta-bar {
     background: white;
     border-bottom: 2px solid var(--navy);
     padding: 13px 40px;
@@ -617,11 +615,12 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     gap: 28px;
     flex-wrap: wrap;
   }
-  .meta-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: #555; }
-  .meta-item strong { color: var(--navy); }
+#fundraising .meta-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: #555; }
+#fundraising .meta-item strong { color: var(--navy); }
+
 
   /* ── Summary panel ── */
-  .summary-panel {
+#fundraising .summary-panel {
     background: var(--navy);
     color: white;
     border-radius: 10px;
@@ -633,25 +632,24 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     align-items: center;
     justify-content: space-around;
   }
-  .s-block { text-align: center; min-width: 110px; }
-  .s-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #8aa8cc; margin-bottom: 5px; }
-  .s-value { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
-  .s-value.green  { color: #7de898; }
-  .s-value.yellow { color: #f7c948; }
-  .s-value.white  { color: #fff; }
-
-  .overall-progress-wrap { flex: 1 1 100%; margin-top: 4px; }
-  .overall-progress-label {
+#fundraising .s-block { text-align: center; min-width: 110px; }
+#fundraising .s-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #8aa8cc; margin-bottom: 5px; }
+#fundraising .s-value { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
+#fundraising .s-value.green { color: #7de898; }
+#fundraising .s-value.yellow { color: #f7c948; }
+#fundraising .s-value.white { color: #fff; }
+#fundraising .overall-progress-wrap { flex: 1 1 100%; margin-top: 4px; }
+#fundraising .overall-progress-label {
     display: flex; justify-content: space-between;
     font-size: 12px; color: #8aa8cc; margin-bottom: 5px;
   }
-  .overall-progress-track {
+#fundraising .overall-progress-track {
     height: 10px;
     background: rgba(255,255,255,0.15);
     border-radius: 99px;
     overflow: hidden;
   }
-  .overall-progress-fill {
+#fundraising .overall-progress-fill {
     height: 100%;
     background: linear-gradient(90deg, #27ae60, #7de898);
     border-radius: 99px;
@@ -659,14 +657,15 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     transition: width 0.5s ease;
   }
 
+
   /* ── Buttons ── */
-  .btn-row {
+#fundraising .btn-row {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 6px;
   }
-  .export-btn, .clear-btn {
+#fundraising .export-btn, #fundraising .clear-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -680,15 +679,16 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     transition: background 0.2s, transform 0.1s;
     letter-spacing: 0.3px;
   }
-  .export-btn { background: var(--accent); color: white; }
-  .export-btn:hover { background: #219a52; transform: translateY(-1px); }
-  .clear-btn { background: #e8eef8; color: var(--navy); border: 1px solid var(--border); }
-  .clear-btn:hover { background: #d5e0f0; }
-  .save-notice { font-size: 11px; color: #888; margin-top: 4px; }
+#fundraising .export-btn { background: var(--accent); color: white; }
+#fundraising .export-btn:hover { background: #219a52; transform: translateY(-1px); }
+#fundraising .clear-btn { background: #e8eef8; color: var(--navy); border: 1px solid var(--border); }
+#fundraising .clear-btn:hover { background: #d5e0f0; }
+#fundraising .save-notice { font-size: 11px; color: #888; margin-top: 4px; }
+
 
   /* ── Page title ── */
-  .page-title { text-align: center; padding: 22px 40px 6px; }
-  .page-title h2 {
+#fundraising .page-title { text-align: center; padding: 22px 40px 6px; }
+#fundraising .page-title h2 {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     color: var(--navy);
@@ -696,12 +696,12 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     display: inline-block;
     padding-bottom: 6px;
   }
+#fundraising .content { padding: 6px 30px 40px; max-width: 1400px; margin: 0 auto; }
 
-  .content { padding: 6px 30px 40px; max-width: 1400px; margin: 0 auto; }
 
   /* ── Category sections ── */
-  .category-section { margin-bottom: 44px; }
-  .cat-header {
+#fundraising .category-section { margin-bottom: 44px; }
+#fundraising .cat-header {
     font-family: 'Playfair Display', serif;
     font-size: 15px;
     color: white;
@@ -710,10 +710,8 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     border-left: 5px solid var(--red);
     border-radius: 4px 4px 0 0;
   }
-
-  .table-scroll { overflow-x: auto; }
-
-  table {
+#fundraising .table-scroll { overflow-x: auto; }
+#fundraising table {
     width: 100%;
     border-collapse: collapse;
     background: white;
@@ -721,9 +719,8 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     border-radius: 0 0 6px 6px;
     overflow: hidden;
   }
-
-  thead tr { background: #e8eef8; border-top: 2px solid var(--blue); }
-  thead th {
+#fundraising thead tr { background: #e8eef8; border-top: 2px solid var(--blue); }
+#fundraising thead th {
     padding: 10px 12px;
     text-align: left;
     font-size: 11px;
@@ -734,26 +731,23 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     border-right: 1px solid var(--border);
     white-space: nowrap;
   }
-  thead th:last-child { border-right: none; }
-  .donor-th { background: #dce8f8 !important; color: var(--blue) !important; }
-
-  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
-  tbody tr:nth-child(even) { background: var(--row-alt); }
-  tbody tr:hover { background: #dce8f8; }
-  tbody tr.fully-funded { background: #e4f9ee !important; }
-  tbody tr.fully-funded:hover { background: #d2f4e0 !important; }
-
-  td {
+#fundraising thead th:last-child { border-right: none; }
+#fundraising .donor-th { background: #dce8f8 !important; color: var(--blue) !important; }
+#fundraising tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+#fundraising tbody tr:nth-child(even) { background: var(--row-alt); }
+#fundraising tbody tr:hover { background: #dce8f8; }
+#fundraising tbody tr.fully-funded { background: #e4f9ee !important; }
+#fundraising tbody tr.fully-funded:hover { background: #d2f4e0 !important; }
+#fundraising td {
     padding: 9px 12px;
     vertical-align: middle;
     border-right: 1px solid var(--border);
     font-size: 13px;
   }
-  td:last-child { border-right: none; }
-
-  .sn { font-weight: 600; color: var(--navy); text-align: center; width: 38px; }
-  .item-name { font-weight: 600; min-width: 150px; position: relative; }
-  .funded-badge {
+#fundraising td:last-child { border-right: none; }
+#fundraising .sn { font-weight: 600; color: var(--navy); text-align: center; width: 38px; }
+#fundraising .item-name { font-weight: 600; min-width: 150px; position: relative; }
+#fundraising .funded-badge {
     display: inline-block;
     font-size: 9px;
     font-weight: 700;
@@ -766,9 +760,8 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-
-  .img-cell { width: 155px; text-align: center; padding: 7px; }
-  .item-img {
+#fundraising .img-cell { width: 155px; text-align: center; padding: 7px; }
+#fundraising .item-img {
     max-width: 140px;
     max-height: 125px;
     object-fit: contain;
@@ -779,12 +772,13 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     background: #f8f8f8;
     padding: 4px;
   }
-  .no-img { color: #aaa; font-size: 12px; font-style: italic; height: 55px; display: flex; align-items: center; justify-content: center; }
-  .total-usd { font-weight: 700; color: var(--accent); white-space: nowrap; }
+#fundraising .no-img { color: #aaa; font-size: 12px; font-style: italic; height: 55px; display: flex; align-items: center; justify-content: center; }
+#fundraising .total-usd { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
 
   /* ── Donor inputs ── */
-  .donor-name-cell, .donor-amount-cell { background: #f8fbff; min-width: 140px; }
-  input.donor-name {
+#fundraising .donor-name-cell, #fundraising .donor-amount-cell { background: #f8fbff; min-width: 140px; }
+#fundraising input.donor-name {
     width: 100%;
     padding: 6px 8px;
     border: 1px solid var(--border);
@@ -795,14 +789,14 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     background: white;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-  input.donor-name:focus {
+#fundraising input.donor-name:focus {
     outline: none;
     border-color: var(--blue);
     box-shadow: 0 0 0 3px rgba(41,128,185,0.15);
   }
-  .amount-wrap { display: flex; align-items: center; gap: 4px; }
-  .amount-wrap .currency { font-weight: 700; color: var(--navy); font-size: 13px; flex-shrink: 0; }
-  input.donor-amount {
+#fundraising .amount-wrap { display: flex; align-items: center; gap: 4px; }
+#fundraising .amount-wrap .currency { font-weight: 700; color: var(--navy); font-size: 13px; flex-shrink: 0; }
+#fundraising input.donor-amount {
     width: 100%;
     padding: 6px 8px;
     border: 1px solid var(--border);
@@ -813,19 +807,19 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     background: white;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-  input.donor-amount:focus {
+#fundraising input.donor-amount:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(39,174,96,0.15);
   }
-  input.donor-amount.funded { border-color: var(--accent); background: #f0fbf4; font-weight: 600; }
+#fundraising input.donor-amount.funded { border-color: var(--accent); background: #f0fbf4; font-weight: 600; }
+#fundraising .progress-wrap { margin-top: 4px; height: 4px; background: #dde; border-radius: 99px; overflow: hidden; }
+#fundraising .progress-bar { height: 100%; background: var(--accent); border-radius: 99px; width: 0%; transition: width 0.4s ease; }
+#fundraising .progress-bar.over { background: var(--blue); }
 
-  .progress-wrap { margin-top: 4px; height: 4px; background: #dde; border-radius: 99px; overflow: hidden; }
-  .progress-bar { height: 100%; background: var(--accent); border-radius: 99px; width: 0%; transition: width 0.4s ease; }
-  .progress-bar.over { background: var(--blue); }
 
   /* ── Footer ── */
-  .footer {
+#fundraising .footer {
     text-align: center;
     padding: 20px;
     background: var(--navy);
@@ -834,13 +828,21 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     letter-spacing: 0.5px;
   }
 
-  @media (max-width: 700px) {
-    .header { padding: 16px 16px; }
-    .content { padding: 6px 10px 30px; }
-    .meta-bar { padding: 10px 14px; }
-    .summary-panel { padding: 16px; gap: 14px; }
-    .s-value { font-size: 17px; }
+@media (max-width: 700px) {
+
+    #fundraising .header { padding: 16px 16px; }
+
+    #fundraising .content { padding: 6px 10px 30px; }
+
+    #fundraising .meta-bar { padding: 10px 14px; }
+
+    #fundraising .summary-panel { padding: 16px; gap: 14px; }
+
+    #fundraising .s-value { font-size: 17px; }
+
   }
+
+
 </style>
 </head>
 <body>
@@ -994,6 +996,7 @@ footer{background:#0a1c44;color:#cfd6e6;padding:70px 0 0;margin-top:80px}
     </div>
   </div>
 </section>
+
 
 <section class="section fundraising-section" id="fundraising">
 
@@ -2398,6 +2401,7 @@ function clearAll() {
 /* ── Init ── */
 restoreAll();
 </script>
+
 </section>
 
 <section class="section" id="team" style="background:#fff; border-top: 1px solid var(--line)">
@@ -2663,6 +2667,17 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+// Fallback: ensure all .reveal elements become visible after page fully loads
+// (handles cases where elements are never intersected due to page height / layout)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+      // Check if element is in or near the viewport, or just force all visible
+      el.classList.add('in');
+    });
+  }, 800);
+});
+
 // stat counters
 const animateCount = el => {
   const target = +el.dataset.target;
@@ -2726,7 +2741,7 @@ copyBtn.addEventListener('click', () => {
 });
 
 
-});
+
 
 </script>
 </body>
